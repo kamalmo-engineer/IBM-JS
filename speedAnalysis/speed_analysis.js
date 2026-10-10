@@ -1,7 +1,7 @@
 let testText = "The quick brown fox jumps over the lazy dog.";
 let startTime, endTime;
 
-function startTest(){
+function startTest() {
     document.getElementById('inputText').value = testText;
 
     let userInput = document.getElementById('userInput');
@@ -14,7 +14,7 @@ function startTest(){
     startTime = new Date().getTime();
 }
 
-function endTest(){
+function endTest() {
     endTime = new Date().getTime();
     
     document.getElementById('userInput').readOnly = true;
@@ -22,19 +22,20 @@ function endTest(){
     var timeElapsed = (endTime - startTime) / 1000; // in seconds
     var userTypedText = document.getElementById("userInput").value;
 
-    var typedWords = userTypedText.split(/\s+/).filter(function(word){
+    var typedWords = userTypedText.split(/\s+/).filter(function(word) {
         return word !== '';
     }).length;
 
-    var wpm  = 0;
+    var wpm = 0;
 
     if (timeElapsed !== 0 && !isNaN(typedWords)) {
         wpm = Math.round((typedWords / timeElapsed) * 60);
     }
 
     var outputDiv = document.getElementById("output");
-            outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
-                "<p>Words Typed: " + typedWords + "</p>" +
-                "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
-                "<p>Words Per Minute (WPM): " + wpm + "</p>";
+    outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
+        "<p>Total Length: " + userTypedText.length + "</p>" +
+        "<p>Words Typed: " + typedWords + "</p>" +
+        "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
+        "<p>Words Per Minute (WPM): " + wpm + "</p>";
 }

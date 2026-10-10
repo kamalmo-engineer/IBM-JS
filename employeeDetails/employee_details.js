@@ -4,7 +4,6 @@ const employees = [
     { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000 },
 ];
 
-// دالة عرض جميع الموظفين
 function displayEmployees() {
   const totalEmployees = employees.map(employee => 
       `<p>${employee.id}: ${employee.name} - ${employee.department} - $${employee.salary}</p>`
